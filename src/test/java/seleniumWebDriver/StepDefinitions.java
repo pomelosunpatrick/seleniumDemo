@@ -40,7 +40,7 @@ public class StepDefinitions {
         // Wait for the page to load timeout after ten seconds
         new WebDriverWait(driver, Duration.ofSeconds(3)).until((ExpectedCondition<Boolean>) d -> {
             assert d != null;
-            return d.getTitle().toLowerCase().startsWith(titleStartsWith);
+            return d.getTitle().startsWith(titleStartsWith);
         });
     }
 
