@@ -7,7 +7,7 @@ Not available for now
 ### Maven quick start and documentation
 TBD
 
-## Minium requirement
+## Minimum requirement
 TBD
 
 ## Running the demo test
