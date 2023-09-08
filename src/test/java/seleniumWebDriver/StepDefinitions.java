@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -44,6 +45,11 @@ public class StepDefinitions {
         driver.get("https://duckduckgo.com/");
     }
 
+    @When("I navigate to Gmail")
+    public void navigateToGmail() {
+        driver.get("https://www.gmail.com");
+    }
+
     @When("I search for {string}")
     public void search_for(String query) {
         WebElement element = driver.findElement(By.name("q"));
@@ -51,6 +57,30 @@ public class StepDefinitions {
         element.sendKeys(query);
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
+    }
+
+    @When("I input the user name of the Gmail")
+    public void inputGmailUsrName() {
+        WebElement inputUsrName = driver.findElement(By.xpath("//input[@id='identifierId']"));
+        inputUsrName.sendKeys("seleniumautotest@gmail.com");
+    }
+
+    @When("I input the password of the Gmail")
+    public void inputGmailPassword() {
+        WebElement inputPwd = driver.findElement(By.id("password"));
+        inputPwd.sendKeys("SeleniumAutoTest666");
+    }
+
+    @When("I click Next button on the Gmail user name input page")
+    public void clickNextBtnOnGmailUsrInput() {
+        WebElement nextBtn = driver.findElement(By.id("identifierNext"));
+        nextBtn.click();
+    }
+
+    @When("I click Next button on the Gmail password input page")
+    public void clickNextBtnOnGmailPwdInput() {
+        WebElement nextBtn = driver.findElement(By.id("passwordNext"));
+        nextBtn.click();
     }
 
     @Then("the page title should start with {string}")
@@ -61,6 +91,20 @@ public class StepDefinitions {
             assert d != null;
             return d.getTitle().startsWith(titleStartsWith);
         });
+    }
+
+    @Then(("I see the input for user name on google authentication page"))
+    public void assertVisibilityGmailInputUsrName() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement inputUsrName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='identifierId']")));
+        inputUsrName.isEnabled();
+    }
+
+    @Then("I see the input for password on google authentication page")
+    public void assertVisibilityGmailInputPassword() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement inputPwd = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
+        inputPwd.isEnabled();
     }
 
     @After()
