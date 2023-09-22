@@ -12,7 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,10 +32,14 @@ public class StepDefinitions {
                 driver = new ChromeDriver();
                 break;
             case "Firefox":
-                driver = new FirefoxDriver();
+                FirefoxOptions optionsFirefox = new FirefoxOptions();
+                optionsFirefox.setHeadless(true);
+                driver = new FirefoxDriver(optionsFirefox);
                 break;
             case "Edge":
-                driver = new EdgeDriver();
+                EdgeOptions optionsEdge = new EdgeOptions();
+                optionsEdge.setHeadless(true);
+                driver = new EdgeDriver(optionsEdge);
                 break;
             default:
                 throw new RuntimeException("Unsupported browser type: " + browser);
