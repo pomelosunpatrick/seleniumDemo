@@ -33,12 +33,12 @@ public class StepDefinitions {
                 break;
             case "Firefox":
                 FirefoxOptions optionsFirefox = new FirefoxOptions();
-                optionsFirefox.addArguments("--headless=new");
+                optionsFirefox.addArguments("headless");
                 driver = new FirefoxDriver(optionsFirefox);
                 break;
             case "Edge":
                 EdgeOptions optionsEdge = new EdgeOptions();
-                optionsEdge.addArguments("--headless=new");
+                optionsEdge.addArguments("headless");
                 driver = new EdgeDriver(optionsEdge);
                 break;
             default:
