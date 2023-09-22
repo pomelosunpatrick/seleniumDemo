@@ -38,8 +38,6 @@ public class StepDefinitions {
                 driver = new FirefoxDriver(optionsFirefox);
                 break;
             case "Edge":
-                // WebDriverManager downloads Edge browser executables or binaries.
-                WebDriverManager.edgedriver().setup();
                 EdgeOptions optionsEdge = new EdgeOptions();
                 optionsEdge.addArguments("--headless");
                 driver = new EdgeDriver(optionsEdge);
