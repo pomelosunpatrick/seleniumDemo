@@ -5,6 +5,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -37,9 +38,10 @@ public class StepDefinitions {
                 driver = new FirefoxDriver(optionsFirefox);
                 break;
             case "Edge":
+                // WebDriverManager downloads Edge browser executables or binaries.
+                WebDriverManager.edgedriver().setup();
                 EdgeOptions optionsEdge = new EdgeOptions();
-                optionsEdge.addArguments("headless");
-                optionsEdge.setCapability("UseChromium", true);
+                optionsEdge.addArguments("--headless");
                 driver = new EdgeDriver(optionsEdge);
                 break;
             default:
