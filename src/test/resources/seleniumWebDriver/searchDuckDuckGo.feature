@@ -5,10 +5,10 @@ Feature: An example using Selenium WebDriver
     Given I open the <browser> browser
     Given I am on the DuckDuckGo search page
     When I search for "Cheese!"
-    Then the page title should start with "Cheese?"
+    Then the page title should start with "Cheese!"
 
     Examples:
       | browser   |
-#      | "Chrome"  |
+      | "Chrome"  |
       | "Firefox" |
       | "Edge"    |

@@ -15,6 +15,6 @@ Feature: Test the login functionality of Gmail
 
     Examples:
       | browser   |
-#      | "Chrome"  |
+      | "Chrome"  |
       | "Firefox" |
       | "Edge"    |
