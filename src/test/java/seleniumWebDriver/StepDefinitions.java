@@ -41,7 +41,7 @@ public class StepDefinitions {
                 break;
             case "Edge":
                 EdgeOptions optionsEdge = new EdgeOptions();
-                optionsEdge.addArguments("--headless");
+                optionsEdge.addArguments("--headless=new");
                 driver = new EdgeDriver(optionsEdge);
                 break;
             default:
