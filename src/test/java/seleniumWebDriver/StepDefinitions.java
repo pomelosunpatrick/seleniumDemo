@@ -41,7 +41,6 @@ public class StepDefinitions {
                 break;
             case "Edge":
                 EdgeOptions optionsEdge = new EdgeOptions();
-                optionsEdge.setBrowserVersion("117.0.2045.43");
                 optionsEdge.addArguments("--headless");
                 driver = new EdgeDriver(optionsEdge);
                 break;
